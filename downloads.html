@@ -1,0 +1,31 @@
+---
+layout: page
+title: Downloads
+---
+
+<h1>Downloads</h1>
+<p>Protokolle, Briefe und alles weitere öffentliche findest du hier zum Herunterladen.</p>
+<p>Bisher nur Platzhalter!</p>
+
+<div class="contentgrid">
+    {% for download in site.downloads %}
+
+    <div class="box download">
+        <a href="{{ download.url }}">
+            <div class="boxcontent">
+                <h4>{{ download.type }}</h4>
+                <h3>{{ download.shortname }}</h3>
+                {% if download.preview %}
+                <img class="preview" src="{{ download.preview }}" alt="Vorschau von {{ download.title }}">
+                {% endif %}
+            </div>
+        </a>
+        <a href="{{ download.file }}" download="{{ download.shortname }}">
+            <div class="boxbutton">
+                <p>Herunterladen</p>
+            </div>
+        </a>
+    </div>
+
+    {% endfor %}
+</div>

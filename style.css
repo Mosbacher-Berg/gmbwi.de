@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Enriqueta|Montserrat&display=swap');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+h1,
+h2,
+.header {
+    font-family: "Enriqueta", serif;
+}
+
+.header {
+    color: #808080;
+    text-decoration: none;
+}
+
+/*
+ * Animatable sheet
+ */
+
+.sheet {
+    position: absolute;
+    top: calc(100vh - 4rem);
+    left: 0;
+    height: 4rem;
+    width: 100%;
+    box-shadow: 0 0 5px #dadada;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: white;
+    transition: 300ms ease-in-out;
+}
+
+.active .sheet {
+    height: 100vh;
+    top: 0;
+    box-shadow: unset;
+}
+
+.container {
+    opacity: 1;
+    transition: 300ms;
+}
+
+.active .container {
+    opacity: 0;
+    transition: 150ms;
+}
+
+
+
+/*
+ * Content grids
+ * - Index
+ * - Downloads
+ */
+.contentgrid {
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: calc(50% - 0.25rem) calc(50% - 0.25rem);
+}
+
+.box {
+    box-shadow: 0 0 10px #dadada;
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+.home .box {
+    padding: 1rem;
+}
+
+.home .box img {
+    height: 6rem;
+}
+
+.box * {
+    margin: 0;
+    text-decoration: none;
+    color: #404040;
+}
+
+.box.download h4 {
+    color: #808080;
+    font-size: 0.8rem;
+}
+
+.box.download .boxcontent {
+    padding: 0.5rem;
+    height: 10rem;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+}
+
+.box.download .boxbutton {
+    border-top: 1px solid #eeeeee;
+    padding: 0.5rem;
+}
+
+.box.download img.preview {
+    overflow: hidden;
+    width: 100%;
+    margin: 0.5rem auto;
+    display: block;
+    box-shadow: 0 0 5px #dadada;
+    border-radius: 0.5rem;
+    transition: 200ms;
+}
