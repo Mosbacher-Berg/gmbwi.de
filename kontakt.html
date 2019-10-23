@@ -1,0 +1,61 @@
+---
+layout: default
+title: Kontakt
+---
+
+<h1>Kontakt</h1>
+<p>Wenn du eine Frage hast oder etwas klären möchtest, hast du einige Möglichkeiten, uns zu kontaktieren.</p>
+
+<div class="box space">
+    <h2>Online</h2>
+    <hr>
+    <h3>Instagram: <a href="https://instagram.com/sv.gmb">@sv.gmb</a></h3>
+    <p class="space">Auf Instagram findest du immer aktuelle Informationen von uns, aber du kannst uns auch gerne ein
+        Direktnachricht schreiben!</p>
+    <div id="mail"></div>
+    <hr>
+    <h3><a href="https://mosbacher-berg.de/contact">Per Formular</a></h3>
+    <p class="space">Das Formular auf der Schulwebsite kann etwas mehr Anonymität bieten.</p>
+</div>
+
+<div class="box space">
+    <h2>Offline</h2>
+    <hr>
+    <h3>Diskussionspause</h3>
+    <p class="space">Jeden Dienstag in der zweiten großen Pause kannst du uns im SV-Büro im Raum B120 besuchen und dort
+        deine Anliegen besprechen.</p>
+    <hr>
+    <h3>SV-Briefkasten</h3>
+    <p class="space">Falls wir einmal nicht im Büro sein sollten, du aber einen Zettel abgeben oder uns eine Nachricht
+        zukommen lassen möchtest, kannst du einfach einen Brief in den Briefkasten direkt vor unserem Büro in B120
+        werfen.</p>
+        <hr>
+    <h3>Persönlich</h3>
+    <p class="space">Für den Fall, dass du ein dringendes Anliegen hast, kannst du uns natürlich auch in den Pausen auf dem Schulhof antreffen und ansprechen.</p>
+</div>
+
+
+<script>
+
+    /* Adding email by js in hope to avoid spam */
+
+    var hr = document.createElement("hr"),
+        h3 = document.createElement("h3"),
+        a = document.createElement("a"),
+        p = document.createElement("p");
+    var name = "sv", domain = "gmbwi.de";
+    var root = document.getElementById("mail")
+
+    h3.innerHTML = "E-Mail: ";
+    a.innerHTML = name + "@" + domain;
+    a.href = "mailto:" + "name" + "@" + domain;
+    h3.appendChild(a);
+
+    p.innerHTML = "Wenn du Instagram nicht nutzt oder uns lieber etwas ein wenig formelleres schreiben möchtest, kannst du uns auch eine E-Mail schicken.";
+    p.classList = "space";
+
+    root.appendChild(hr);
+    root.appendChild(h3);
+    root.appendChild(p);
+
+</script>

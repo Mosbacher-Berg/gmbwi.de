@@ -1,16 +1,15 @@
 ---
-layout: page
+layout: default
 title: Downloads
 ---
 
 <h1>Downloads</h1>
 <p>Protokolle, Briefe und alles weitere öffentliche findest du hier zum Herunterladen.</p>
-<p>Bisher nur Platzhalter!</p>
 
 <div class="contentgrid">
     {% for download in site.downloads %}
 
-    <div class="box download">
+    <div class="box download button">
         <a href="{{ download.file }}">
             <div class="boxcontent">
                 <h4>{{ download.type }}</h4>
@@ -21,7 +20,7 @@ title: Downloads
             </div>
         </a>
         <a href="{{ download.file }}" download="{{ download.shortname }}">
-            <div class="boxbutton">
+            <div class="directdl">
                 <p>Herunterladen</p>
             </div>
         </a>
