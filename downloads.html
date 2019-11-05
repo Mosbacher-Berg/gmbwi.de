@@ -6,25 +6,55 @@ title: Downloads
 <h1>Downloads</h1>
 <p>Protokolle, Briefe und alles weitere Öffentliche findest du hier zum Herunterladen.</p>
 
+<!-- Information -->
+
+<h2 class="space">Informationen</h2>
 <div class="contentgrid">
-    {% for download in site.downloads %}
+{% assign transcripts = site.downloads | where: "type", "Information" | reverse %}
+{% for transcript in transcripts %}
 
     <div class="box download button">
-        <a href="{{ download.file }}">
+        <a href="{{ transcript.url }}">
             <div class="boxcontent">
-                <h4>{{ download.type }}</h4>
-                <h3>{{ download.shortname }}</h3>
-                {% if download.preview %}
-                <img class="preview" src="{{ download.preview }}" alt="Vorschau von {{ download.title }}">
+                <h4>{{ transcript.type }}</h4>
+                <h3>{{ transcript.shortname }}</h3>
+                {% if transcript.preview %}
+                <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
                 {% endif %}
             </div>
         </a>
-        <a href="{{ download.file }}" download="{{ download.shortname }}">
+        <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
             <div class="directdl">
                 <p>Herunterladen</p>
             </div>
         </a>
     </div>
+</div>
 
+{% endfor %}
+
+<!-- Transcripts -->
+
+<h2 class="space">Protokolle</h2>
+<div class="contentgrid">
+{% assign transcripts = site.downloads | where: "type", "Protokoll" | reverse %}
+{% for transcript in transcripts %}
+
+    <div class="box download button">
+        <a href="{{ transcript.url }}">
+            <div class="boxcontent">
+                <h4>{{ transcript.type }}</h4>
+                <h3>{{ transcript.shortname }}</h3>
+                {% if transcript.preview %}
+                <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
+                {% endif %}
+            </div>
+        </a>
+        <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
+            <div class="directdl">
+                <p>Herunterladen</p>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 </div>
