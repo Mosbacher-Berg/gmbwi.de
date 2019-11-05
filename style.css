@@ -111,7 +111,15 @@ hr {
 
 .fileembed {
     width: 100%;
-    min-height: 60vh;
+    height: 60vh;
     border-radius: 1rem;
     box-shadow: 0 0 10px #dadada;
+    overflow: hidden;
+}
+
+.fileembed>* {
+    width: calc(100% + 1.6rem);
+    height: calc(60vh + 1.6rem);
+    min-height: 60vh;
+    margin: -0.8rem;
 }
