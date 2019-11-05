@@ -18,7 +18,7 @@ description: >
   Eure Schülervertretung am Gymnasium am Mosbacher Berg.
   Findet Protokolle, Briefe und mehr.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sv.gmbwi.de/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sv.gmbwi.de" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
