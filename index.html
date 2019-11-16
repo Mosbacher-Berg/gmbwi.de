@@ -2,28 +2,78 @@
 layout: default
 ---
 
-<div class="contentgrid">
-    <a href="/wir" class="box button">
-        <p>Über uns</p>
+<div id="background" style="background-image: url(/files/bg_0.jpg); opacity: 0;"></div>
+
+<div class="headinfo">
+    <a href="/" alt="SV am GMB" class="logo">
+        <img src="files/logo.svg" />
     </a>
-    <a href="/kontakt" class="box button">
-        <p>Kontakt</p>
-    </a>
-    <a href="/downloads" class="box button">
-        <p>Downloads</p>
-    </a>
-    <a href="http://fkoe.org/svu" class="box button">
-        <p>Umfrage</p>
-    </a>
-    </a>
-    <a href="https://instagram.com/sv.gmb" class="box button">
-        <p>Instagram</p>
-    </a>
-    <a href="https://mosbacher-berg.de" class="box button">
-        <p>Schulwebsite</p>
-    </a>
+    <a href="/kontakt" class="button">Kontaktiere uns</a>
+    <div class="links">
+        <div class="link">  
+            <a href="https://instagram.com/sv.gmb">Instagram</a>
+        </div>
+        <div class="link">
+            <a href="https://mosbacher-berg.de">Schulwebsite</a>
+        </div>
+    </div>
 </div>
 
-<p>
-    Keine Sorge, diese Seite wird natürlich noch besser werden!
-</p>
+
+<div class="container sheet home">
+    <h1>Downloads</h1>
+    <p>Protokolle, Briefe und alles weitere Öffentliche findest du hier zum Herunterladen.</p>
+
+    <!-- Information -->
+
+    <h2 class="space">Informationen</h2>
+    <div class="contentgrid">
+        {% assign transcripts = site.downloads | where: "type", "Information" | reverse %}
+        {% for transcript in transcripts %}
+
+        <div class="box download button">
+            <a href="{{ transcript.url }}">
+                <div class="boxcontent">
+                    <h4>{{ transcript.type }}</h4>
+                    <h3>{{ transcript.shortname }}</h3>
+                    {% if transcript.preview %}
+                    <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
+                    {% endif %}
+                </div>
+            </a>
+            <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
+                <div class="directdl">
+                    <p>Herunterladen</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <!-- Transcripts -->
+
+    <h2 class="space">Protokolle</h2>
+    <div class="contentgrid">
+        {% assign transcripts = site.downloads | where: "type", "Protokoll" | reverse %}
+        {% for transcript in transcripts %}
+
+        <div class="box download button">
+            <a href="{{ transcript.url }}">
+                <div class="boxcontent">
+                    <h4>{{ transcript.type }}</h4>
+                    <h3>{{ transcript.shortname }}</h3>
+                    {% if transcript.preview %}
+                    <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
+                    {% endif %}
+                </div>
+            </a>
+            <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
+                <div class="directdl">
+                    <p>Herunterladen</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
