@@ -215,8 +215,8 @@ hr {
     background-size: cover;
     background-position: center;
     filter: brightness(1.8) opacity(0.5) blur(0.8rem);
-    opacity: 1 !important;
-    transition: filter 300ms, opacity 2s ease-in;
+    opacity: 1;
+    transition: filter 300ms, opacity 1500ms;
 }
 
 #background:hover {
@@ -230,40 +230,40 @@ hr {
 */
 
 body.active #background {
-    opacity: 0 !important;
-    transition: 300ms ease-out;
+    opacity: 0;
+    transition: 200ms ease-out;
 }
 
 body.active .header {
     opacity: 0;
-    transition: 0ms 300ms ease-out;
+    transition: 0ms 200ms ease-out;
 }
 
 body.active .headinfo {
     opacity: 0;
-    transition: 300ms ease-out;
+    transition: 200ms ease-out;
 }
 
 body.active .sheet {
     transform: translateY(calc(50vh - 4rem));
     box-shadow: unset;
-    transition: 300ms ease-out;
+    transition: 200ms ease-out;
 }
 
 body.active .sheet.home {
     transform: translateY(calc(-50vh + 4rem));
     box-shadow: unset;
-    transition: 300ms ease-out;
+    transition: 200ms ease-out;
 }
 
 body.active .sheet > * {
     transform: translateY(4rem);
     opacity: 0;
-    transition: 300ms ease-out;
+    transition: 150ms ease-out;
 }
 
 body.active .sheet.home > * {
     transform: translateY(-2rem);
     opacity: 0;
-    transition: 300ms ease-out;
+    transition: 150ms ease-out;
 }
