@@ -278,6 +278,11 @@ body.active .sheet.home > * {
     body {
         color: white;
         background-color: black;
+        transition: 200ms;
+    }
+    body.active {
+        background-color: #2a2a2d;
+        transition: 200ms ease-out;
     }
     #background {
         filter: brightness(0.4) opacity(0.5) blur(0.8rem);
