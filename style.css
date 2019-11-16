@@ -92,15 +92,16 @@ a {
     padding: 0.6rem;
     color: #404040;
     background-color: white;
+    transition: 150ms;
 }
 
 .button:hover {
     transform: scale(0.98);
-    box-shadow: 0 0 15px #eaeaea;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
 .box {
-    box-shadow: 0 0 5px #dadada;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     text-decoration: none;
     padding: 1rem;
@@ -123,7 +124,7 @@ a {
 }
 
 .box.download h4 {
-    color: #808080;
+    color: #606060;
     font-size: 0.8rem;
 }
 
@@ -135,7 +136,7 @@ a {
 }
 
 .box.download .directdl {
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding: 0.5rem;
 }
 
@@ -144,18 +145,18 @@ a {
     width: 100%;
     margin: 0.5rem auto;
     display: block;
-    box-shadow: 0 0 5px #dadada;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     transition: 200ms;
 }
 
 .box.instagram-post>* {
-    margin: -1px !important;
+    margin: -1px -1px -110px -1px !important;
     width: calc(100% + 2px) !important;
 }
 
 hr {
-    border: 0.5px solid #dadada;
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
     width: 2rem;
     margin: 1rem auto !important;
 }
@@ -169,7 +170,7 @@ hr {
     width: 100%;
     height: 60vh;
     border-radius: 1rem;
-    box-shadow: 0 0 10px #dadada;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -220,7 +221,7 @@ hr {
 }
 
 #background:hover {
-    filter: brightness(1.8) opacity(0.5) blur(0.1rem);
+    filter: brightness(1.4) opacity(0.5) blur(0.1rem);
 }
 
 
@@ -266,4 +267,45 @@ body.active .sheet.home > * {
     transform: translateY(-2rem);
     opacity: 0;
     transition: 150ms ease-out;
+}
+
+
+/*
+* Dark theme
+*/
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background-color: black;
+    }
+    #background {
+        filter: brightness(0.4) opacity(0.5) blur(0.8rem);
+    }
+    .header {
+        text-shadow: 0 0 20px black;
+    }
+    .headinfo .logo > * {
+        filter: drop-shadow(0px 0px 0.8rem black);
+    }
+    .headinfo .links a {
+        text-shadow: 0 0 10px black;
+    }
+    .sheet {
+        background-color: #2a2a2d;
+    }
+    .box, .button, .box *:not(a) {
+        background-color: #222225;
+        color: white;
+    }
+    .box.download img.preview {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);        
+        filter: invert(0.9);
+    }
+    .box.download h4 {
+        color: #bdbdbd;
+    }
+    a {
+        color: #4f76c5;
+    }
 }
