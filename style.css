@@ -275,6 +275,9 @@ body.active .sheet.home > * {
 */
 
 @media (prefers-color-scheme: dark) {
+    html {
+        background-color: black;
+    }
     body {
         color: white;
         background-color: black;
