@@ -44,14 +44,14 @@ a {
 }
 
 .headinfo .logo > *{
-    padding-top: 2rem;
-    width: 35vh;
+    padding-top: 2vh;
+    height: 28vh;
     filter: drop-shadow(0px 0px 0.8rem white);
 }
 
 .headinfo .button {
     float: left;
-    margin: 1.5rem calc(50% - 17.5vh - 0.5rem);
+    margin: 3vh calc(50% - 17.5vh - 0.5rem);
     width: 35vh;
 }
 
@@ -70,6 +70,61 @@ a {
 .headinfo .links div:first-of-type a {
     text-align: end;
     margin-right: 2vh;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.sheet {
+    margin-top: 4rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: white;
+    min-height: calc(100vh - 6rem);
+    transition: box-shadow 150ms ease-out;
+}
+
+.sheet.home {
+    margin-top: 50vh;
+}
+
+.sheet > * {
+    opacity: 1;
+    transition: transform 150ms, opacity 150ms;
+}
+
+@media (min-width: 40rem) {
+    .headinfo {
+        visibility: hidden;
+    }
+
+    .header {
+        left: 1.5rem;
+        right: unset;
+    }
+
+    .headinfo .button {
+        position: fixed;
+        visibility: visible;
+        right: 1.5rem;
+        margin: 0;
+        top: 1rem;
+        width: 10rem;
+    }
+
+    .headinfo .links div:first-of-type {
+        visibility: visible;
+        position: fixed;
+        right: 14.5rem;
+        top: 1.6rem;
+    }
+
+    .sheet.home {
+        margin-top: 4.25rem;
+    }
 }
 
 
@@ -179,30 +234,6 @@ hr {
     height: calc(60vh + 1.6rem);
     min-height: 60vh;
     margin: -0.8rem;
-}
-
-.container {
-    padding: 1rem;
-}
-
-.sheet {
-    margin-top: 4rem;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    background-color: white;
-    min-height: calc(100vh - 6rem);
-    transition: box-shadow 150ms ease-out;
-}
-
-.sheet.home {
-    margin-top: 50vh;
-}
-
-.sheet > * {
-    opacity: 1;
-    transition: transform 150ms, opacity 150ms;
 }
 
 
