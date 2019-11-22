@@ -375,7 +375,13 @@ body.active .sheet.home > * {
     .box.download h4 {
         color: #bdbdbd;
     }
+    .shortcalendar {
+        border: 1px solid rgba(255, 255, 255, 0.02);
+    }
     a {
         color: #4f76c5;
+    }
+    hr {
+        border-color: rgba(255, 255, 255, 0.1);
     }
 }
