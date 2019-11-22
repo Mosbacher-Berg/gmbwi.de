@@ -25,6 +25,32 @@ layout: default
 
 
 <div class="container sheet home">
+
+    <div id="termine" class="shortcalendar">
+        <div class="toggleButton" onclick="toggleCalendar()">
+            <p>Nächste Termine</p>
+            <p></p>
+        </div>
+        <div id="calendarExpandable">
+            {% for event in site.data.events %}
+            <div>
+                <h3 {% if event.important %}class="important"{% endif %}>{{ event.title }}</h3>
+                <p>{{ event.description }}</p>
+                <p><b>{{ event.date }}</b>{% if event.location %}, {{ event.location }} {% endif %}
+                </p>
+                {% if event.link %}
+                <a href="{{ event.link }}">Mehr erfahren...</a>
+                {% endif %}
+            </div>
+            {% unless forloop.last %}
+                <hr />
+            {% endunless %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <hr class="space" />
+
     <h1 id="downloads">Downloads</h1>
     <p>Protokolle, Briefe und alles weitere Öffentliche findest du hier zum Herunterladen.</p>
 
@@ -81,3 +107,24 @@ layout: default
         {% endfor %}
     </div>
 </div>
+
+<script>
+    /*
+    * Collapsable
+    */
+
+    function toggleCalendar() {
+        var content = document.getElementById("calendarExpandable");
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            document.getElementById("termine").scrollIntoView({behavior: "smooth"});
+        }
+    }
+
+    if (document.URL.includes("#termine")) {
+        toggleCalendar();
+    }
+
+</script>
