@@ -376,12 +376,12 @@ body.active .sheet.home > * {
         color: #bdbdbd;
     }
     .shortcalendar {
-        border: 1px solid rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     a {
         color: #4f76c5;
     }
     hr {
-        border-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
     }
 }
