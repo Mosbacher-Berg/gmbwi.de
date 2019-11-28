@@ -1,9 +1,3 @@
-- title: Horizon-Messe
-  description: Eine Bildungsmesse zu den Themen Studium, Ausbildung, Freiwilligendienste et cetera.
-  date: 23. - 24.11.2019, 10-16 Uhr
-  location: Kurfürstliches Schloss Mainz
-  link: https://horizon-messe.de/mainz
-
 - title: Fridays For Future November
   description: Demonstration zum Thema Klimawandel.
   date: 29.11.2019, 12:00
@@ -21,3 +15,6 @@
   date: 11.12.2019
   location: Aula
   important: yes
+
+- title: Letzter Schultag
+  date: 20.12.2019
