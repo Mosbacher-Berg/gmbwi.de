@@ -34,7 +34,7 @@ layout: default
         <div id="calendarExpandable">
             {% for event in site.data.events %}
             <div>
-                <h3 {% if event.important %}class="important"{% endif %}>{{ event.title }}</h3>
+                <h3 {% if event.important %}class="important" {% endif %}>{{ event.title }}</h3>
                 <p>{{ event.description }}</p>
                 <p><b>{{ event.date }}</b>{% if event.location %}, {{ event.location }} {% endif %}
                 </p>
@@ -43,7 +43,7 @@ layout: default
                 {% endif %}
             </div>
             {% unless forloop.last %}
-                <hr />
+            <hr />
             {% endunless %}
             {% endfor %}
         </div>
@@ -54,56 +54,46 @@ layout: default
     <h1 id="downloads">Downloads</h1>
     <p>Protokolle, Briefe und alles weitere Öffentliche findest du hier zum Herunterladen.</p>
 
-    <!-- Information -->
-
-    <h2 class="space">Informationen</h2>
-    <div class="contentgrid">
-        {% assign transcripts = site.downloads | where: "type", "Information" | reverse %}
-        {% for transcript in transcripts %}
-
-        <div class="box download button">
-            <a href="{{ transcript.url }}">
-                <div class="boxcontent">
-                    <h4>{{ transcript.type }}</h4>
-                    <h3>{{ transcript.shortname }}</h3>
-                    {% if transcript.preview %}
-                    <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
-                    {% endif %}
-                </div>
-            </a>
-            <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
-                <div class="directdl">
-                    <p>Herunterladen</p>
-                </div>
-            </a>
+    <div class="filters">
+        <div class="selector" id="occasion">
+            <span onclick="filter('occasion', this, 'sr')">SR</span>
+            <span onclick="filter('occasion', this, 'ssr')">SSR</span>
+            <span onclick="filter('occasion', this, 'vorstand')">Vorstand</span>
+            <span onclick="filter('occasion', this, 'sonstiges')">Sonstiges</span>
         </div>
+
+        <div class="selector" id="type">
+            <span onclick="filter('type', this, 'protokoll')">Protokolle</span>
+            <span onclick="filter('type', this, 'material')">Materialien</span>
+            <span onclick="filter('type', this, 'einladung')">Einladungen</span>
+        </div>
+
+        <div class="overlay"></div>
     </div>
 
-    {% endfor %}
+    <!-- Files -->
 
-    <!-- Transcripts -->
+    <div class="contentgrid" id="files">
+        {% assign downloads = site.downloads | reverse %}
+        {% for download in downloads %}
 
-    <h2 class="space">Protokolle</h2>
-    <div class="contentgrid">
-        {% assign transcripts = site.downloads | where: "type", "Protokoll" | reverse %}
-        {% for transcript in transcripts %}
-
-        <div class="box download button">
-            <a href="{{ transcript.url }}">
+        <div class="box download button {{ download.type | downcase}} {{ download.occasion | downcase }}">
+            <a href="{{ download.url }}">
                 <div class="boxcontent">
-                    <h4>{{ transcript.type }}</h4>
-                    <h3>{{ transcript.shortname }}</h3>
-                    {% if transcript.preview %}
-                    <img class="preview" src="{{ transcript.preview }}" alt="Vorschau von {{ transcript.title }}">
+                    <h4>{{ download.type }}</h4>
+                    <h3>{{ download.shortname }}</h3>
+                    {% if download.preview %}
+                    <img class="preview" src="{{ download.preview }}" alt="Vorschau von {{ download.title }}">
                     {% endif %}
                 </div>
             </a>
-            <a href="{{ transcript.file }}" download="{{ transcript.shortname }}.pdf">
+            <a href="{{ download.file }}" download="{{ download.shortname }}.pdf">
                 <div class="directdl">
                     <p>Herunterladen</p>
                 </div>
             </a>
         </div>
+
         {% endfor %}
     </div>
 </div>
@@ -119,12 +109,66 @@ layout: default
             content.style.maxHeight = null;
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
-            document.getElementById("termine").scrollIntoView({behavior: "smooth"});
+            document.getElementById("termine").scrollIntoView({ behavior: "smooth" });
         }
     }
 
     if (document.URL.includes("#termine")) {
         toggleCalendar();
+    }
+
+
+    /*
+    * Selector
+    */
+
+    var filter1 = ""
+    var filter2 = ""
+
+    function filter(selection, selected, filter) {
+        var container = document.getElementById(selection)
+        var options = document.getElementById(selection).children
+
+        for (option of options) {
+            option.classList.remove("checked")
+            switch (selection) {
+                case "occasion":
+                    filter1 = ""
+                    break
+                case "type":
+                    filter2 = ""
+            }
+        }
+
+        container.classList.toggle("selected")
+        if (container.classList.contains("selected")) {
+            selected.classList.add("checked")
+            switch (selection) {
+                case "occasion":
+                    filter1 = filter
+                    break
+                case "type":
+                    filter2 = filter
+            }
+        }
+
+        var downloads = document.getElementById("files").children
+        document.getElementById("files").classList.add("hidden")
+
+        for (download of downloads) {
+            download.style.display = ""
+            if (filter1 != "" && filter1 != "sonstiges" && !download.classList.contains(filter1)) {
+                download.style.display = "none"
+            }
+            if (filter1 == "sonstiges" && (download.classList.contains("sr") || download.classList.contains("ssr") || download.classList.contains("vorstand"))) {
+                download.style.display = "none"
+            }
+            if (filter2 != "" && !download.classList.contains(filter2)) {
+                download.style.display = "none"
+            }
+        }
+
+        document.getElementById("files").classList.remove("hidden")
     }
 
 </script>

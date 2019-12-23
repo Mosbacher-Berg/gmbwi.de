@@ -47,7 +47,7 @@ h3.important {
     transition: opacity 150ms ease-out;
 }
 
-.headinfo .logo > *{
+.headinfo .logo>* {
     padding-top: 2vh;
     height: 28vh;
     filter: drop-shadow(0px 0px 0.8rem white);
@@ -95,7 +95,7 @@ h3.important {
     margin-top: 50vh;
 }
 
-.sheet > * {
+.sheet>* {
     opacity: 1;
     transition: transform 150ms, opacity 150ms;
 }
@@ -322,16 +322,58 @@ body.active .sheet.home {
     transition: 200ms ease-out;
 }
 
-body.active .sheet > * {
+body.active .sheet>* {
     transform: translateY(4rem);
     opacity: 0;
     transition: 150ms ease-out;
 }
 
-body.active .sheet.home > * {
+body.active .sheet.home>* {
     transform: translateY(-2rem);
     opacity: 0;
     transition: 150ms ease-out;
+}
+
+.filters {
+    overflow-x: scroll;
+    white-space: nowrap;
+    text-align: start;
+}
+
+.selector {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    padding: 0.75rem;
+    border-radius: 10rem;
+    display: inline-block;
+}
+
+.selector.selected {
+    border: 1px solid rgba(79, 118, 197, 0.6);
+    background-color: rgba(79, 118, 197, 0.3);
+}
+
+.selector span {
+    cursor: pointer;
+    padding: 0.75rem;
+}
+
+.selector.selected span {
+    display: none;
+}
+
+.selector.selected span.checked {
+    display: unset;
+}
+
+#files {
+    opacity: 1;
+    transition: 100ms 100ms;
+}
+
+#files.hidden {
+    opacity: 0;
+    transition: 50ms;
 }
 
 
@@ -345,42 +387,56 @@ body.active .sheet.home > * {
         background-color: black;
         transition: 200ms;
     }
+
     body.active {
         background-color: #2a2a2d;
         transition: 200ms ease-out;
     }
+
     #background {
         filter: brightness(0.4) opacity(0.5) blur(0.8rem);
     }
+
     .header {
         text-shadow: 0 0 20px black;
     }
-    .headinfo .logo > * {
+
+    .headinfo .logo>* {
         filter: drop-shadow(0px 0px 0.8rem black);
     }
+
     .headinfo .links a {
         text-shadow: 0 0 10px black;
     }
+
     .sheet {
         background-color: #2a2a2d;
     }
-    .box, .button, .box *:not(a) {
+
+    .box,
+    .button,
+    .box *:not(a) {
         background-color: #222225;
         color: white;
     }
+
     .box.download img.preview {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);        
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         filter: invert(0.9);
     }
+
     .box.download h4 {
         color: #bdbdbd;
     }
+
     .shortcalendar {
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     a {
         color: #4f76c5;
     }
+
     hr {
         border-color: rgba(255, 255, 255, 0.2);
     }

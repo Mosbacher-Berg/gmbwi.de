@@ -1,18 +1,5 @@
-- title: SR-Sitzung
-  description: Die nächste Schülerratssitzung im Dezember 2019.
-  date: 11.12.2019
-  location: Aula
-  important: yes
+- title: Erster Schultag
+  date: 13.01.2019
 
-- title: Workshop&#58; Achtung Achtsamkeit
-  description: Ein Seminar zu innerem Frieden und Vergebung.
-  date: 14.12.2019, 12-18 Uhr
-  location: Infoladen Wiebaden
-  link: http://www.infoladen-wiesbaden.de/index.php?option=com_content&view=article&id=724%3Aworkshop-achtsamkeit-191&catid=52%3Astartseite&lang=de
-
-- title: Auslosung des Weihnachtsgewinnspiels
-  description: Zu diesem Zeitpunkt endet die Möglichkeit, am Gewinnspiel teilzunehmen. Die Geschenke werden am nächsten Tag verteilt.
-  date: 18.12.2019
-
-- title: Letzter Schultag
-  date: 20.12.2019
+- title: SSR-Vollversammlung
+  date: 14.1.2019
