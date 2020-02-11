@@ -95,6 +95,8 @@ layout: default
         </div>
 
         {% endfor %}
+        
+        <h4 id="nocontentinfo" style="display:none">Zur Zeit gibt es keine Inhalte für diese Filter.</h4>
     </div>
 </div>
 
@@ -153,19 +155,28 @@ layout: default
         }
 
         var downloads = document.getElementById("files").children
+        var hiddencount = 0
         document.getElementById("files").classList.add("hidden")
+        document.getElementById("nocontentinfo").style.display = "none"
 
         for (download of downloads) {
             download.style.display = ""
             if (filter1 != "" && filter1 != "sonstiges" && !download.classList.contains(filter1)) {
                 download.style.display = "none"
+                hiddencount++
             }
             if (filter1 == "sonstiges" && (download.classList.contains("sr") || download.classList.contains("ssr") || download.classList.contains("vorstand"))) {
                 download.style.display = "none"
+                hiddencount++
             }
             if (filter2 != "" && !download.classList.contains(filter2)) {
                 download.style.display = "none"
+                hiddencount++
             }
+        }
+        
+        if (hiddencount == downloads.length) {
+            document.getElementById("nocontentinfo").style.display = ""
         }
 
         document.getElementById("files").classList.remove("hidden")
