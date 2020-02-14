@@ -366,16 +366,6 @@ body.active .sheet.home>* {
     display: unset;
 }
 
-#files {
-    opacity: 1;
-    transition: 100ms 100ms;
-}
-
-#files.hidden {
-    opacity: 0;
-    transition: 50ms;
-}
-
 
 /*
 * Dark theme
