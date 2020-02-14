@@ -82,10 +82,13 @@ layout: default
                 <div class="boxcontent">
                     <h4>{{ download.type }}</h4>
                     <h3>{{ download.shortname }}</h3>
-                    {% if download.preview %}
                     <img class="preview" src="
-                    {% if download.preview %}{{ download.preview }}{% else %}/files/noimg.jpg{% endif %}" alt="Vorschau von {{ download.title }}">
-                    {% endif %}
+                        {% if download.preview %}
+                            {{ download.preview }}
+                        {% else %}
+                            /files/noimg.jpg
+                        {% endif %}
+                    " alt="Vorschau von {{ download.title }}">
                 </div>
             </a>
             <a href="{{ download.file }}" download="{{ download.shortname }}.pdf">
