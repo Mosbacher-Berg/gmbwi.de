@@ -366,16 +366,6 @@ body.active .sheet.home>* {
     display: unset;
 }
 
-#files {
-    opacity: 1;
-    transition: 100ms 100ms;
-}
-
-#files.hidden {
-    opacity: 0;
-    transition: 50ms;
-}
-
 
 /*
 * Dark theme
@@ -422,7 +412,7 @@ body.active .sheet.home>* {
 
     .box.download img.preview {
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        filter: invert(0.9);
+        filter: invert(0.9) saturate(0);
     }
 
     .box.download h4 {

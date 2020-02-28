@@ -7,7 +7,7 @@ layout: page
 
 <div class="fileembed">
     <embed src="https://drive.google.com/viewerng/
-viewer?embedded=true&url={{ site.url }}{{ page.file }}">
+viewer?embedded=true&url={% unless page.file contains "http" %}{{ site.url }}{% endunless %}{{ page.file }}">
 </div>
 <div class="box button space">
     <a href="{{ page.file }}" download="{{ page.shortname }}.pdf">Herunterladen</a>
