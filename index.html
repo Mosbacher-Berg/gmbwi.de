@@ -29,7 +29,9 @@ layout: default
     <div class="warning">
         <span class="material-icons">error_outline</span>
         <p>Kein regulärer Schulbetrieb bis zu den Osterferien.</p>
-        <p><a href="https://mosbacher-berg.de/news/5561-regul%C3%A4rer-schulbetrieb-wird-bis-zu-den-osterferien-ausgesetzt">Erhalte weitere Informationen</a> oder <a href="/kontakt">stelle uns deine Fragen</a>.</p>
+        <p><a
+                href="https://mosbacher-berg.de/news/5561-regul%C3%A4rer-schulbetrieb-wird-bis-zu-den-osterferien-ausgesetzt">Erhalte
+                weitere Informationen</a> oder <a href="/kontakt">stelle uns deine Fragen</a>.</p>
     </div>
 
     <div id="termine" class="shortcalendar">
@@ -105,7 +107,7 @@ layout: default
         </div>
 
         {% endfor %}
-        
+
         <h4 id="nocontentinfo" style="display:none">Zur Zeit gibt es keine Inhalte für diese Filter.</h4>
     </div>
 </div>
@@ -167,27 +169,33 @@ layout: default
         var downloads = document.getElementById("files").children
         var hiddencount = 0
         document.getElementById("files").classList.add("hidden")
-        document.getElementById("nocontentinfo").style.display = "none"
 
         for (download of downloads) {
             download.style.display = ""
+            var isHidden = false;
             if (filter1 != "" && filter1 != "sonstiges" && !download.classList.contains(filter1)) {
                 download.style.display = "none"
-                hiddencount++
+                isHidden = true
             }
             if (filter1 == "sonstiges" && (download.classList.contains("sr") || download.classList.contains("ssr") || download.classList.contains("vorstand"))) {
                 download.style.display = "none"
-                hiddencount++
+                isHidden = true
             }
             if (filter2 != "" && !download.classList.contains(filter2)) {
                 download.style.display = "none"
-                hiddencount++
+                isHidden = true
             }
+            if (isHidden) hiddencount++
         }
-        
-        if (hiddencount >= downloads.length) {
+
+        console.log(downloads.length)
+        console.log(hiddencount)
+        console.log("------------")
+
+        if (hiddencount >= downloads.length)
             document.getElementById("nocontentinfo").style.display = ""
-        }
+        else
+            document.getElementById("nocontentinfo").style.display = "none"
 
         document.getElementById("files").classList.remove("hidden")
     }
