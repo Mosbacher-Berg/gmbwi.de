@@ -366,6 +366,14 @@ body.active .sheet.home>* {
     display: unset;
 }
 
+img.inner {
+    max-height: 80vh;
+    margin: auto;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
 
 /*
 * Dark theme
