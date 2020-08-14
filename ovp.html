@@ -24,8 +24,16 @@ title: OVP-Account erstellen
     <p>Tippe unter Ansicht auf <a href="https://mosbacher-berg.de/school_coderole/redeem">Aktivierungscode einlösen</a>. Gib dort deinen Aktivierungscode ein und bestätige ihn. Jetzt solltest du auf deiner Accountseite den Eintrag <i>Vertretungsplan</i> sehen können.</p>
 </div>
 
-<div class="box space" style="display:none">
+<div class="box space" style="display:none" id="promo">
     <h2>Optional: GMB-Planer installieren</h2>
     <hr>
     <p>Der GMB-Planer ist eine komfortable Methode, auf deinen Vertretungsplan zuzugreifen und deinen Schulalltag zu organisieren. Du kannst ihn <a href="/planer">bei Google Play installieren</a>.</p>
 </div>
+
+<script>
+// Show GMB Planner promo on Android 
+var ua = navigator.userAgent.toLowerCase();
+if(ua.indexOf("android") > -1) {
+    document.getelementById("promo").style.display = "unset";
+}
+</script>
