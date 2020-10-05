@@ -334,6 +334,11 @@ body.active .sheet.home>* {
     transition: 150ms ease-out;
 }
 
+body.active div.box {
+    opacity: 0;
+    transition: 150ms ease-out;
+}
+
 .filters {
     overflow-x: scroll;
     white-space: nowrap;
